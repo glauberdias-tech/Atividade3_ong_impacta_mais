@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cadastro — ONG Exemplo</title>
+<meta name="description" content="Formulário de cadastro para voluntários e doadores." />
+<link rel="stylesheet" href="css/style.css"> </head>
+<body>
+<header>
+<div class="brand">
+<a href="index.html" aria-label="Página inicial">
+<img src="assets/img/Logo.webp" alt="Logotipo ONG Exemplo" width="160">
+</a>
+</div>
+<button class="menu-toggle" aria-controls="main-navigation" aria-expanded="false">
+<span class="sr-only">Abrir menu</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<nav aria-label="Menu principal" id="main-navigation">
+<ul>
+<li><a href="index.html">Início</a></li>
+<li><a href="projetos.html">Projetos</a></li>
+<li><a href="cadastro.html">Cadastro</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<h1>Cadastro</h1>
+<form id="formCadastro" action="#" method="post">
+<fieldset class="form-grid"> <legend>Dados pessoais</legend>
+<label for="nome">Nome completo</label>
+<input id="nome" name="nome" type="text" required minlength="3">
+<label for="email">E-mail</label>
+<input id="email" name="email" type="email" required>
+<label for="cpf">CPF</label>
+<input id="cpf" name="cpf" type="text" inputmode="numeric" required maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" aria-describedby="cpfHelp">
+<small id="cpfHelp" class="help-text">Formato: 000.000.000-00</small>
+<label for="tel">Telefone</label>
+<input id="tel" name="tel" type="tel" inputmode="tel" required maxlength="15">
+<label for="nasc">Data de nascimento</label>
+<input id="nasc" name="nasc" type="date" required>
+</fieldset>
+<fieldset class="form-grid"> <legend>Endereço</legend>
+<label for="cep">CEP</label>
+<input id="cep" name="cep" type="text" inputmode="numeric" required maxlength="9">
+<label for="end">Endereço</label>
+<input id="end" name="end" type="text" required>
+<label for="cidade">Cidade</label>
+<input id="cidade" name="cidade" type="text" required>
+<label for="estado">Estado</label>
+<select id="estado" name="estado" required>
+<option value="">Escolha</option>
+<option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option><option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option><option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option><option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option><option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option><option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option>
+</select>
+</fieldset>
+<button type="submit" class="button primary large">Enviar Cadastro</button>
+</form>
+</main>
+<footer>
+<p>&copy; <span id="ano3"></span> ONG Impacta+ — Transparência</p> </footer>
+<script src="js/masks.js"></script>
+<script>
+document.getElementById('ano3').textContent = new Date().getFullYear(); // Script para o ano
+// Script para o Menu Hambúrguer (Mobile)
+const menuToggle = document.querySelector('.menu-toggle');
+const mainNavigation = document.getElementById('main-navigation');
+
+menuToggle.addEventListener('click', () => {
+const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+menuToggle.setAttribute('aria-expanded', !isExpanded);
+mainNavigation.classList.toggle('is-open');
+});
+</script>
+</body>
+</html>
